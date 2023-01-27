@@ -1,0 +1,78 @@
+Texto de entrada<br>
+<textarea id="input"></textarea><br>
+Texto de saida<br>
+<textarea id="output"></textarea><br>
+<button id="convert-btn">Converter</button>
+
+<script>
+const latinToCyrillic = {
+  'A': 'А', 
+  'B': 'В', 
+  'F': 'Ғ', 
+  'E': 'Е', 
+  'Z': 'Ζ', 
+  'I': 'Ӏ', 
+  'J': 'Ј', 
+  'K': 'Κ',
+  'L': 'Ł', 
+  'M': 'М', 
+  'Ç': 'Ҫ',
+  'V': 'Ѵ', 
+  'Õ': 'Ӧ', 
+  'O': 'О', 
+  'P': 'Р',
+  'R': 'R', 
+  'S': 'S', 
+  'T': 'Т', 
+  'U': 'Ц', 
+  'F': 'F',
+  'H': 'Н', 
+  'C': 'С', 
+  'X': 'Х', 
+  'W': 'Ш',
+  'Y': 'У',
+  'X': 'Х',
+  'É': 'Ё',
+  'p': 'ρ',
+  'o': 'ο', 
+  'u': 'υ', 
+  'v': 'ν',
+  'k': 'κ',
+  'i': 'ι',
+  's': 'ѕ',
+  'w': 'ѡ',
+  'é': 'ё',
+  'e': 'е',
+  'a': 'а',
+  'r': 'г',
+  'm': 'м',
+  'h': 'Һ',
+  'c': 'с',
+  't': 'т',
+  'y': 'у',
+  'x': 'х',
+};
+
+const input = document.getElementById("input");
+const output = document.getElementById("output");
+const convertBtn = document.getElementById("convert-btn");
+
+convertBtn.addEventListener("click", function() {
+  let result = '';
+  const latinString = input.value;
+  for (let i = 0; i < latinString.length; i++) {
+    if (latinString[i] in latinToCyrillic) {
+      result += latinToCyrillic[latinString[i]];
+    } else {
+      result += latinString[i];
+    }
+  }
+
+  output.value = result;
+});
+</script>
+
+<style>
+#input, #output {width: 100%;height: 150px;}
+button {background-color: red;color: white;width:150px;height:50px;font-size:30px}
+</style>
